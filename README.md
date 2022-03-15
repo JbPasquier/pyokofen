@@ -2,6 +2,14 @@
 
 Python interface for Okofen (oekofen) JSON API
 
+## Installation
+
+```bash
+pip install pyokofen
+```
+
+## Usage
+
 ```python
 import pyokofen
 import time
