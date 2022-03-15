@@ -1,9 +1,4 @@
-import os
 import setuptools
-
-
-def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 
 setuptools.setup(
@@ -17,7 +12,6 @@ setuptools.setup(
     packages=("pyokofen",),
     python_requires=">=3.8.0",
     install_requires=["requests"],
-    long_description=read("README.md"),
     classifiers=[
         "Development Status :: 3 - Beta",
         "Intended Audience :: Developers",
