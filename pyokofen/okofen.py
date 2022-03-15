@@ -35,16 +35,16 @@ class Okofen:
         Okofen.get("system", "L_ambient")
         """
         if self.exists(domain) > 0:
-            safe_domain = ''.join([n for n in domain if not n.isdigit()])
+            safe_domain = "".join([n for n in domain if not n.isdigit()])
             if isinstance(self.__values[safe_domain], list):
-                entity = ''.join([n for n in domain if n.isdigit()])
-                return self.__values[safe_domain][int(entity)-1].get(target)
+                entity = "".join([n for n in domain if n.isdigit()])
+                return self.__values[safe_domain][int(entity) - 1].get(target)
             else:
                 return self.__values[safe_domain].get(target)
         return None
 
     def exists(self, domain) -> int:
-        safe_domain = ''.join([n for n in domain if not n.isdigit()])
+        safe_domain = "".join([n for n in domain if not n.isdigit()])
         if safe_domain in self.__values:
             if isinstance(self.__values[safe_domain], list):
                 return len(self.__values[safe_domain])

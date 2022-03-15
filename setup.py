@@ -13,7 +13,6 @@ setuptools.setup(
     python_requires=">=3.8.0",
     install_requires=["requests"],
     classifiers=[
-        "Development Status :: 3 - Beta",
         "Intended Audience :: Developers",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
