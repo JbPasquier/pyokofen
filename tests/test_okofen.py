@@ -19,6 +19,8 @@ class TestOkofen(unittest.IsolatedAsyncioTestCase):
         )
         # Check if sample ambient temp is properly loaded
         self.assertEqual(self.okofen.get("system", "L_ambient"), 7.7)
+        # Check if sample hk0 temp is properly loaded
+        self.assertEqual(self.okofen.get("hk1", "L_roomtemp_set"), 8)
 
     """TODO: Some real testing"""
 

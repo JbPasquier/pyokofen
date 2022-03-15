@@ -10,8 +10,8 @@ boiler = pyokofen.Okofen()
 boiler.credentials("1.1.1.1", "4321", "XXXX")
 try boiler.update():
     print("It works!")
-    print("Current temperature: " + boiler.hk[0].L_roomtemp_act)
-    print("Target temperature: " + boiler.hk[0].L_roomtemp_set)
+    print("Current temperature: " + boiler.get("hk0", "L_roomtemp_act"))
+    print("Target temperature: " + boiler.get("hk0", "L_roomtemp_set"))
 except:
     print('Oh no!')
 ```

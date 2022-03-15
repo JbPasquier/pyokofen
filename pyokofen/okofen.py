@@ -1,4 +1,5 @@
 """JSON to python API for Okofen boilers"""
+import re
 import requests
 import json
 import datetime
@@ -33,9 +34,23 @@ class Okofen:
         Get a value from a target of a domain
         Okofen.get("system", "L_ambient")
         """
-        if domain in self.__values:
-            return self.__values[domain].get(target)
+        if self.exists(domain) > 0:
+            safe_domain = ''.join([n for n in domain if not n.isdigit()])
+            if isinstance(self.__values[safe_domain], list):
+                entity = ''.join([n for n in domain if n.isdigit()])
+                return self.__values[safe_domain][int(entity)-1].get(target)
+            else:
+                return self.__values[safe_domain].get(target)
         return None
+
+    def exists(self, domain) -> int:
+        safe_domain = ''.join([n for n in domain if not n.isdigit()])
+        if safe_domain in self.__values:
+            if isinstance(self.__values[safe_domain], list):
+                return len(self.__values[safe_domain])
+            else:
+                return 1
+        return 0
 
     async def update(self) -> bool:
         """
