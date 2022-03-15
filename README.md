@@ -16,7 +16,8 @@ import time
 
 boiler = pyokofen.Okofen()
 # Set here you ip:port/password/ - eg. 1.1.1.1:4321/XXXX/
-try boiler.credentials("1.1.1.1", "4321", "XXXX"):
+try:
+    boiler.credentials("1.1.1.1", "4321", "XXXX")
     print("It works!")
     print("Current temperature: " + boiler.get("hk0", "L_roomtemp_act"))
     print("Target temperature: " + boiler.get("hk0", "L_roomtemp_set"))
