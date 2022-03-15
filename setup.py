@@ -1,9 +1,9 @@
 import setuptools
-
+from pathlib import Path
 
 setuptools.setup(
     name="PyOkofen",
-    version="1.0.0",
+    version="1.0.1",
     author="Jean-Baptiste Pasquier",
     author_email="contact@jbpasquier.eu",
     description="JSON to python API for Okofen boilers",
@@ -12,6 +12,8 @@ setuptools.setup(
     packages=("pyokofen",),
     python_requires=">=3.8.0",
     install_requires=["requests"],
+    long_description=(Path(__file__).parent / "README.md").read_text(),
+    long_description_content_type="text/markdown",
     classifiers=[
         "Intended Audience :: Developers",
         "Operating System :: OS Independent",
